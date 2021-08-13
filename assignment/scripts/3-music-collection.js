@@ -21,18 +21,19 @@ function showCollection ( collection ) {
   console.log(collection.length);
   for (let i=0; i < collection.length; i++) {
     console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}`);;
-  }
-};
-showCollection(collection);
+  } // end collection loop, console logged object categories
+}; // end showCollection
+showCollection(collection); //test showCollection
 
 function findByArtist( artist ) {
   let artistArray = [];
   for (let i=0; i < collection.length; i++) {
-    if (collection[i] === addToCollection(artist)) {
-      artistArray.push(addToCollection(artist));
+    if (artist === collection[i].artist) {
+      artistArray.push(collection[i].artist);
     }
   }
   return artistArray;
 };
-
-// console.log(findByArtist(artist)); // every time I try to call this function my display gets messed up
+console.log(findByArtist('J. Cole')); // test for J. Cole expect: ["J. Cole", "J. Cole"]
+console.log(findByArtist('Jay-Z')); // test for Jay-Z expect: []
+console.log(findByArtist('Nipsey Hussle')); // test for Nipsey Hussle expect: ["Nipsey Hussle"]
