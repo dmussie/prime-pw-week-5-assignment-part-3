@@ -2,7 +2,7 @@ console.log('***** Music Collection *****')
 let collection = [];
 function addToCollection(title, artist, yearPublished, tracks) {
   let album = {
-    title, artist, yearPublished, tracks
+    title, artist, yearPublished, tracks // was initially confused as to how to add tracks to object
   } // end album
   collection.push(album);
   return album;
@@ -20,12 +20,13 @@ console.log(addToCollection('Run the Jewels 2', 'Run the Jewels', 2014,
 console.log(addToCollection('Victory Lap', 'Nipsey Hussle', 2018,
 [{name: 'Victory Lap', duration: '3:58'}, {name: 'Dedication', duration: '4:05'}, {name: 'Hussle & Motivate', duration: '4:18'}]));
 console.log('My collection of six albums:', collection);
+// Had help to understand the notation behind logging another array's data (tracks) into our inital collection array
 
 function showCollection ( collection ) {
   console.log(collection.length);
   for (let i=0; i < collection.length; i++) {
     console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}:`);
-    for (let j=0; j < collection[i].tracks.length; j++)
+    for (let j=0; j < collection[i].tracks.length; j++) // initally forgot about NESTED for loops!! This took time to figure out and help from a classmate
       console.log(`${j+1}. ${collection[i].tracks[j].name}: ${collection[i].tracks[j].duration}`);
   } // end collection loop, console logged object categories
 }; // end showCollection
